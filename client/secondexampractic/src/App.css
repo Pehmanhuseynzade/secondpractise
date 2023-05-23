@@ -1,32 +1,36 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
 }
-li{
+
+li {
   list-style: none;
   color: white;
 }
-header{
+
+header {
   background-color: #b194ff;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
 }
-nav{
+
+nav {
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
 }
-ul{
+
+ul {
   display: flex;
   gap: 20px;
   padding: 7px;
 }
 
-.image-hero{
+.image-hero {
   height: 100vh;
   background: url(https://preview.colorlib.com/theme/robotics/img/banner-bg.jpg.webp);
   background-size: cover;
@@ -34,39 +38,89 @@ ul{
   display: flex;
   align-items: center;
 }
-.main-words{
+
+.main-words {
   color: white;
 }
 
-.main-words h1{
+.main-words h1 {
   font-size: 60px;
 }
-.main-words p{
+
+.main-words p {
   font-size: 20px;
 }
-.robot-sec{
+
+.robot-sec {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  
+
 }
-.robotcard{
+
+.robotcard {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.robot-head{
+
+.robot-head {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 30px;
 }
 
-.robot-head-word h1{
+.robot-head-word h1 {
   font-size: 45px;
 }
-.robot-head-word p{
+
+.robot-head-word p {
   font-size: 18px;
 }
-.robot-head-word .p{
+
+.robot-head-word .p {
   color: gray;
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: 200px;
+}
+
+.cardboxes {
+  transition: .5s;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  padding: 10px 15px;
+}
+
+.boxescolor {
+  height: 70vh;
+  background: url(https://preview.colorlib.com/theme/robotics/img/feature-bg.jpg.webp);
+  background-size: cover;
+}
+
+.images-sec {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px;
+}
+
+.images-sec img {
+  transition: all 0.3s ease;
+}
+.images-sec img:hover {
+  transform: scale(1.5);
+}
+
+.endsec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
