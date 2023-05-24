@@ -1,37 +1,31 @@
-import axios from 'axios'
+//import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Card } from "antd";
-// import { getAlldatasID } from '../api/httpsrequests';
+import { getAlldatasID } from '../../api/httpsrequests';
+import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 
-function Detailpage() {
+function Detail() {
+  const navigate = useNavigate();
 
-  const [data, setData] = useState({})
-  const params = useParams()
-
-  const getDataById = async () => {
-    const res = await axios.get(`http://localhost:7070/api/robot/${params.id}`)
-    console.log(res.data);
-    console.log(params.id);
-    setData(res.data[0])
-  }
+  const { id } = useParams()
+  const [data, SetData] = useState({})
   useEffect(() => {
-    getDataById()
-  }, [])
-
-  // const { id } = useParams()
-  // const [data, SetData] = useState({})
-  // useEffect(() => {
-  //   getAlldatasID(id)
-  //     .then(res => {
-  //       SetData(res)
-  //     }, [id])
-  // })
+    getAlldatasID(id)
+      .then(res => {
+        SetData(res)
+      }, [id])
+  })
 
   return (
     <>
+          <Link onClick={() => {
+        navigate('/robot');
+      }} ><Button style={{ margin: "80px 40px",zIndex:"999" }} variant="contained" color='error'>Go Back</Button></Link>
       <section className="robot-sec">
         <Card
+        key={data._id}
           className="robotcard"
           hoverable="true"
           style={{
@@ -58,4 +52,4 @@ function Detailpage() {
 }
 
 
-export default Detailpage
+export default Detail

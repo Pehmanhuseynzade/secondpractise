@@ -5,12 +5,11 @@ import { useEffect } from "react";
 import { getAlldatas } from "../../api/httpsrequests";
 import Boxes from "../../components/Boxes";
 import Endsec from "../../components/Endsec";
-import { Link, useNavigate, Route } from "react-router-dom"
-import Detailpage from "../Detail";
+import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet";
 
 function Home() {
   const [datas, setDatas] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     getAlldatas().then((data) => {
@@ -18,10 +17,14 @@ function Home() {
       console.log(data);
     });
   }, []);
-  <Route path="/robot/:id" component={Detailpage} />
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <main>
         <div className="image-hero">
           <div className="main-words">
@@ -57,7 +60,9 @@ function Home() {
         {datas &&
           datas.map((d) => (
             <Card
-              onClick={() => navigate(d._id)}
+            span = {8} xl = {8} 
+            lg = {8} md = {12} xs = {24} sm = {24}
+              key={d._id}
               className="robotcard"
               hoverable="true"
               style={{
@@ -71,7 +76,7 @@ function Home() {
               }
             >
               <p >
-                Name: <span>{d.name}</span>
+                Name: <Link to={`/datadetail/${d._id}`}><span style={{ color: 'red' }}>{d.name}</span></Link>
               </p>
               <p>
                 Price: <span>{d.price}</span>
