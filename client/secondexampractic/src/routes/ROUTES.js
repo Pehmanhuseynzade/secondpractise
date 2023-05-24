@@ -1,5 +1,5 @@
 import Add from "../Pages/Add";
-import Detailpage from "../Pages/Detailpage";
+import Detailpage from "../Pages/Detail";
 import Home from "../Pages/Home";
 import Mainroot from "../Pages/Mainroot";
 
@@ -13,11 +13,11 @@ export const ROUTES= [
                     element:<Home/>
                },
                {
-                    path:'/add',
+                    path:'add',
                     element:<Add/>
                },
                {
-                    path:'/detailpage/:id',
+                    path:'robot/:id',
                     element:<Detailpage/>
                }
           ]

@@ -5,9 +5,12 @@ import { useEffect } from "react";
 import { getAlldatas } from "../../api/httpsrequests";
 import Boxes from "../../components/Boxes";
 import Endsec from "../../components/Endsec";
+import { Link, useNavigate, Route } from "react-router-dom"
+import Detailpage from "../Detail";
 
 function Home() {
   const [datas, setDatas] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAlldatas().then((data) => {
@@ -15,6 +18,7 @@ function Home() {
       console.log(data);
     });
   }, []);
+  <Route path="/robot/:id" component={Detailpage} />
 
   return (
     <>
@@ -25,13 +29,7 @@ function Home() {
             <h1>Production level</h1>
             <h1>with Robotics</h1>
             <p>EVERYONE WANTS THE INNOVATION THROUGH ROBOTICS</p>
-            <Button
-              style={{
-                color: "black",
-                border: "none",
-                backgroundColor: "white",
-                marginTop: "12px",
-              }}
+            <Button className="btn"
               variant="outlined"
             >
               VIEW DETAILS
@@ -59,6 +57,7 @@ function Home() {
         {datas &&
           datas.map((d) => (
             <Card
+              onClick={() => navigate(d._id)}
               className="robotcard"
               hoverable="true"
               style={{
@@ -71,7 +70,7 @@ function Home() {
                 />
               }
             >
-              <p>
+              <p >
                 Name: <span>{d.name}</span>
               </p>
               <p>
@@ -147,14 +146,14 @@ function Home() {
       </section>
 
       <div style={{ padding: "60px" }}>
-        <h1 style={{fontSize:"40px", textAlign: "center" }}>
+        <h1 style={{ fontSize: "40px", textAlign: "center" }}>
           Some Features that Made us Unique
         </h1>
-        <p style={{ color: "gray", textAlign: "center",marginTop:"12px" }}>
+        <p style={{ color: "gray", textAlign: "center", marginTop: "12px" }}>
           Who are in extremely love with eco friendly system.</p>
       </div>
 
-    <Endsec/>
+      <Endsec />
     </>
   );
 }
